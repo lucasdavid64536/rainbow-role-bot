@@ -20,13 +20,15 @@ client.on('ready', () => {
 });
 client.on('guildCreate', (guild) => {
     let channels = guild.channels.filter(channel => channel.type === 'text' && channel.permissionsFor(guild.members.get(client.user.id)).has('SEND_MESSAGES'));
-    if (channels.size > 0) channels.first().send('Pntru a functiona trebuie sa aveti gradul **Rainbow** si gradul sau deasupra lui pentru a porni scrieti .start si pentru al opri scrieti .stop <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
+    if (channels.size > 0) channels.first().send('Pentru a functiona trebuie sa aveti gradul **Rainbow** si gradul sau deasupra lui pentru a porni scrieti .start si pentru al opri scrieti .stop <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
 });
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
     if (message.member.hasPermission('MANAGE_GUILD') || message.member.hasPermission('ADMINISTRATOR') || message.member.id === message.guild.owner.id) {
         if (message.content === '.stop') {stop.push(message.guild.id); return message.channel.send('Offline');}
         if (message.content === '.start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('Online');}
+        if (message.content === '.invite'); return message.channel.send('https://discordapp.com/oauth2/authorize?client_id=528186840822579230&permissions=2146958833&scope=bot');}
+        if (message.content === '.start'); return message.channel.send('```f.start start rainbow \n\ f.stop  stop rainbow \n\ f.invite  invite color```');}
     }
 })
 client.login(process.env.TOKEN);
