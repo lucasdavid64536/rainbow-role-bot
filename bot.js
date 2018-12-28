@@ -28,7 +28,7 @@ client.on('message', (message) => {
         if (message.content === '.stop') {stop.push(message.guild.id); return message.channel.send('Offline');}
         if (message.content === '.start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('Online');}
         if (message.content === '.invite'); return message.channel.send('https://discordapp.com/oauth2/authorize?client_id=528186840822579230&permissions=2146958833&scope=bot');}
-        if (message.content === '.start'); return message.channel.send('```f.start start rainbow \n\ f.stop  stop rainbow \n\ f.invite  invite color```');}
+        if (message.content === '.help'); return message.channel.send('```f.start start rainbow \n\ f.stop  stop rainbow \n\ f.invite  invite color```');}
     }
 })
 client.login(process.env.TOKEN);
