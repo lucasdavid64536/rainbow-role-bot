@@ -19,13 +19,13 @@ client.on('ready', () => {
 });
 client.on('guildCreate', (guild) => {
     let channels = guild.channels.filter(channel => channel.type === 'text' && channel.permissionsFor(guild.members.get(client.user.id)).has('SEND_MESSAGES'));
-    if (channels.size > 0) channels.first().send('Вы пригласили бота **Rainbow Role**.\nДля его корректного функционирования у вас на сервере должна быть роль `Rainbow`, роль бота должна иметь право `управление ролями`, и быть выше роли `Rainbow`.\nДля управления ботом есть команды:\n`::stop` - останавливает изменение цвета радужной роли\n`::start` - восстанавливает изменение цвета радужной роли\n**Обе команды требуют право `Администратор` или `Управление сервером`!**\n\nЕсли у вас возникли какие-то трудности - обратитесь к <@421030089732653057> (`zziger#8040`)');
+    if (channels.size > 0) channels.first().send('Pentru a functiona corect, trebuie sa aveti rolul `Rainbow` pe server, rolul botului trebuie sa aiba` `managementul rolurilor '' si sa fie mai mare decat rolul` Rainbow`. \ NT pentru a controla botul sunt comenzi: \ n`.stop` - oprește schimbarea culorii rolului curcubeului \ n`.start` - restabilește schimbarea culorii rolului curcubeului \ n ** Ambele comenzi necesită dreptul de "Administrator" sau "Management de server"! ** \ n \ nDacă aveți dificultăți, consultați <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
 });
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
     if (message.member.hasPermission('MANAGE_GUILD') || message.member.hasPermission('ADMINISTRATOR') || message.member.id === message.guild.owner.id) {
-        if (message.content === '::stop') {stop.push(message.guild.id); return message.channel.send('Готово');}
-        if (message.content === '::start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('Готово');}
+        if (message.content === '.stop') {stop.push(message.guild.id); return message.channel.send('Offline');}
+        if (message.content === '.start') {stop.splice(stop.indexOf(message.guild.id),1); return message.channel.send('Online');}
     }
 })
 client.login(process.env.TOKEN);
