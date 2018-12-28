@@ -35,6 +35,19 @@ client.on('guildMemberAdd', member => {
 
         channel.sendEmbed(embed);
 });
+client.on('guildMemberLeave', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('#ff0000')
+        .setThumbnail(memberavatar)
+        .addField('✘ | Nume: ', `${member}`)
+        .addField('✘ | Goodbye !', `of! , ${member}`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
     if (message.member.hasPermission('MANAGE_GUILD') || message.member.hasPermission('ADMINISTRATOR') || message.member.id === message.guild.owner.id) {
