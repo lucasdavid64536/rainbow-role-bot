@@ -35,7 +35,7 @@ client.on('guildMemberAdd', member => {
 
         channel.sendEmbed(embed);
 });
-client.on('guildMemberLeave', member => {
+client.on('guildMemberRemove', member => {
     let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
