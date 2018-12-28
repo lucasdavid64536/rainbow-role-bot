@@ -22,6 +22,19 @@ client.on('guildCreate', (guild) => {
     let channels = guild.channels.filter(channel => channel.type === 'text' && channel.permissionsFor(guild.members.get(client.user.id)).has('SEND_MESSAGES'));
     if (channels.size > 0) channels.first().send('Pentru a functiona trebuie sa aveti gradul **Rainbow** si gradul sau deasupra lui pentru a porni scrieti .start si pentru al opri scrieti .stop <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
 });
+client.on('guildMemberAdd', member => {
+    let channel = member.guild.channels.find('name', 'welcome');
+    let memberavatar = member.user.avatarURL
+        if (!channel) return;
+        let embed = new Discord.RichEmbed()
+        .setColor('#FF000')
+        .setThumbnail(memberavatar)
+        .addField('✘ | Nume: ', `${member}`)
+        .addField('✘ | Bun Venit !', `Speram ca esti abont pe canal daca nu #anunturi , ${member}`)
+        .setTimestamp()
+
+        channel.sendEmbed(embed);
+});
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
     if (message.member.hasPermission('MANAGE_GUILD') || message.member.hasPermission('ADMINISTRATOR') || message.member.id === message.guild.owner.id) {
