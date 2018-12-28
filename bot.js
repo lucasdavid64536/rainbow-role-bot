@@ -16,7 +16,7 @@ async function color () {
 }
 client.on('ready', () => {
     color();
-    client.user.setGame('.start / .stop / .invite / .support');
+    client.user.setGame('.start/.stop/.invite/.support');
 });
 client.on('guildCreate', (guild) => {
     let channels = guild.channels.filter(channel => channel.type === 'text' && channel.permissionsFor(guild.members.get(client.user.id)).has('SEND_MESSAGES'));
