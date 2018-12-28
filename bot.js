@@ -20,7 +20,7 @@ client.on('ready', () => {
 });
 client.on('guildCreate', (guild) => {
     let channels = guild.channels.filter(channel => channel.type === 'text' && channel.permissionsFor(guild.members.get(client.user.id)).has('SEND_MESSAGES'));
-    if (channels.size > 0) channels.first().send('Pentru a functiona corect, trebuie sa aveti rolul `Rainbow` pe server, rolul botului trebuie sa aiba` `managementul rolurilor '' si sa fie mai mare decat rolul` Rainbow`. \ NT pentru a controla botul sunt comenzi: \ n`.stop` - oprește schimbarea culorii rolului curcubeului \ n`.start` - restabilește schimbarea culorii rolului curcubeului \ n ** Ambele comenzi necesită dreptul de "Administrator" sau "Management de server"! ** \ n \ nDacă aveți dificultăți, consultați <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
+    if (channels.size > 0) channels.first().send('Pntru a functiona trebuie sa aveti gradul **Rainbow** si gradul sau deasupra lui pentru a porni scrieti .start si pentru al opri scrieti .stop <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
 });
 client.on('message', (message) => {
     if (message.channel.type !== 'text') return;
