@@ -23,6 +23,8 @@ client.on('guildCreate', (guild) => {
     if (channels.size > 0) channels.first().send('Pentru a functiona trebuie sa aveti gradul **Rainbow** si gradul sau deasupra lui pentru a porni scrieti .start si pentru al opri scrieti .stop <@419472407816830986> (`ꌗ♅ƛꀸ¤Ψ ﾉ ๖̶̶̶ζ ͜͡ znX#0001`)');
 });
 client.on('guildMemberAdd', member => {
+    var joinrole = member.guild.roles.find('name', 'Member');
+    member.addRole(joinrole);
     let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
